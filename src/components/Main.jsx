@@ -31,31 +31,44 @@ const Main = () => {
               and it does not just mean the absence of disease!
             </p>
           </div>
-          <div className="px-1 mx-auto md:mx-0 md:px-5 py-4 md:py-8 w-11/12 md:w-3/4">
-            <div className="join">
-              <div>
-                <div>
-                  <input
-                    className="input input-bordered join-item"
-                    placeholder="Search"
-                  />
+          <div className="px-4 pt-6">
+            <form className="max-w-md mx-auto md:mx-0">
+              <label className="mb-2 text-sm font-medium text-gray-900 sr-only">
+                Search
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                  <svg
+                    className="w-4 h-4 text-gray-500"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                    />
+                  </svg>
                 </div>
-              </div>
-              <select className="select select-bordered join-item">
-                <option disabled selected>
-                  Filter
-                </option>
-                <option>Dentsit</option>
-                <option>Cardiology</option>
-                <option>Pediatrics</option>
-                <option>Radiology</option>
-              </select>
-              <div className="indicator">
-                <button className="btn join-item bg-mainred text-white">
+                <input
+                  type="search"
+                  id="default-search"
+                  className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50"
+                  placeholder="Search Categories, City..."
+                  required
+                />
+                <button
+                  type="submit"
+                  className="text-white absolute end-2.5 bottom-2.5 bg-mainred hover:bg-rose-400 focus:ring-4 font-medium rounded-lg text-sm px-4 py-2"
+                >
                   Search
                 </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
         <div className="w-11/12 md:w-1/2 h-full flex justify-between items-center gap-2 px-4">

@@ -3,9 +3,9 @@ import { useDoctors } from "../Store";
 export const FilterDoctors = () => {
   const { state, dispatch } = useDoctors();
   return (
-    <div className="w-full flex justify-center py-8">
+    <div className="w-full flex justify-center py-6">
       <details className="dropdown w-full">
-        <summary className="btn m-1">Filter</summary>
+        <summary className="btn m-1 px-4 py-1">Filter</summary>
         <div className="flex flex-col md:flex-row w-11/12 mx-auto my-4 card bg-base-200 rounded-md py-2">
           <div className="grid flex-grow place-items-center ">
             <select

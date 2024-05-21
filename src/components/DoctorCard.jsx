@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import femaleavatar from "../assets/images/femaleavatar.svg";
 import maleavatar from "../assets/images/maleavatar.svg";
 
@@ -10,7 +11,9 @@ const DoctorCard = ({ doctors }) => {
       <div className="w-full">
         <img
           className="w-36 mx-auto p-4 rounded-full "
-          src={item.gender == "female" ? femaleavatar : maleavatar}
+          src={
+            item.gender.toLowerCase() == "female" ? femaleavatar : maleavatar
+          }
           alt="product image"
         />
       </div>
@@ -22,7 +25,7 @@ const DoctorCard = ({ doctors }) => {
         </a>
         <a href="#" className="flex my-2">
           <h5 className="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded block">
-            {item.specialty}
+            {item.specialization}
           </h5>
         </a>
         <h3 className="flex items-center py-4">
@@ -38,12 +41,12 @@ const DoctorCard = ({ doctors }) => {
           <span className="font-medium mr-1">Location: </span> {item.city}
         </h3>
         <div className="flex items-center justify-end md:mt-2">
-          <a
-            href="#"
-            className="btn btn-ghost btn-sm md:btn-md text-white bg-mainred font-medium"
+          <Link
+            to={`/doctors/${item.id}`}
+            className="btn btn-sm bg-mainred hover:bg-rose-400 text-white"
           >
             Preview
-          </a>
+          </Link>
         </div>
       </div>
     </div>
@@ -51,19 +54,3 @@ const DoctorCard = ({ doctors }) => {
 };
 
 export default DoctorCard;
-
-/* 
-<div class="relative">
-  <input
-    type="text"
-    id="floating_outlined"
-    class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-    placeholder=" "
-  />
-  <label
-    for="floating_outlined"
-    class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
-  >
-    Floating outlined
-  </label>
-</div>; */

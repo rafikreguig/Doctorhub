@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar.jsx";
 import Home from "./components/Home";
 import Doctors from "./components/Doctors";
+import Doctor from "./components/Doctor";
 import About from "./components/About";
 import Footer from "./components/Footer.jsx";
 import Login from "./components/Login.jsx";
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/doctors/" element={<Doctors />} />
+        <Route path="/doctors/:userId" element={<Doctor />} />
         <Route path="/about-us/" element={<About />} />
         <Route path="/login-page" element={<Login />} />
         <Route path="/signup-page" element={<Signup />} />

@@ -8,7 +8,7 @@ const Doctors = () => {
     <section>
       <div className="w-11/12 mx-auto">
         <FilterDoctors />
-        <div className="text-center py-4">
+        <div className="text-center py-2">
           <h1 className="text-2xl font-bold">Doctors list:</h1>
         </div>
         <div className="grid place-items-center gap-8 mb-6 lg:mb-16 sm:grid-cols-2 lg:grid-cols-3">

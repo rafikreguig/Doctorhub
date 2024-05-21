@@ -9,8 +9,6 @@ import {
 
 const useDoctorsSource = () => {
   const [doctors, setDoctors] = useState([]);
-  // const [selectedCity, setSelectedCity] = useState("");
-  // const [selectedSpecialty, setSelectedSpecialty] = useState("");
 
   const [state, dispatch] = useReducer(
     (state, action) => ({ ...state, ...action }),
@@ -20,11 +18,8 @@ const useDoctorsSource = () => {
     }
   );
 
-  // const handleCitySelected = (event) => setSelectedCity(event.target.value);
-  // const handleSpecialtySelected = (event) => setSelectedSpecialty(event.target.value);
-
   useEffect(() => {
-    fetch("../public/doctors.json")
+    fetch("http://127.0.0.1:8000/api/v1/")
       .then((res) => res.json())
       .then((data) => setDoctors(data));
   }, []);

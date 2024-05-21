@@ -60,7 +60,10 @@ const Navbar = () => {
         <Link to="/login-page" className="btn btn-ghost btn-sm mr-2">
           Login
         </Link>
-        <Link to="/signup-page" className="btn bg-mainred btn-sm text-white">
+        <Link
+          to="/signup-page"
+          className="btn bg-mainred hover:bg-rose-400 btn-sm text-white"
+        >
           Sign up
         </Link>
       </div>
