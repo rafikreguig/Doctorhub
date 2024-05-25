@@ -19,7 +19,7 @@ const useDoctorsSource = () => {
   );
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/v1/")
+    fetch("http://localhost:3000/api/v1/")
       .then((res) => res.json())
       .then((data) => setDoctors(data));
   }, []);

@@ -1,7 +1,20 @@
+import { useContext } from "react";
+import { authContext } from "../AuthContext.jsx";
 import { Link } from "react-router-dom";
 import doctors from "../assets/images/doctors.svg";
 
 const Navbar = () => {
+  const { user, token, role } = useContext(authContext);
+  console.log(user, token, role);
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("role");
+    window.location.reload();
+    window.location.href = "/login-page";
+  };
+
   return (
     <div className="navbar bg-base-100 shadow-sm rounded-b-md">
       <div className="navbar-start md:hidden">
@@ -29,9 +42,16 @@ const Navbar = () => {
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li>
-              <Link to="/doctors">Doctors</Link>
-            </li>
+            {role == "patient" && token && (
+              <li>
+                <Link to="/doctors">Doctors</Link>
+              </li>
+            )}
+            {role == "doctor" && token && (
+              <li>
+                <Link to="/dashboard">Dashboard</Link>
+              </li>
+            )}
             <li>
               <Link to="/about-us">About</Link>
             </li>
@@ -48,25 +68,43 @@ const Navbar = () => {
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>
-            <Link to="/doctors">Doctors</Link>
-          </li>
+          {role == "doctor" && token ? (
+            <li>
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
+          ) : (
+            <li>
+              <Link to="/doctors">Doctors</Link>
+            </li>
+          )}
           <li>
             <Link to="/about-us">About</Link>
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
-        <Link to="/login-page" className="btn btn-ghost btn-sm mr-2">
-          Login
-        </Link>
-        <Link
-          to="/signup-page"
-          className="btn bg-mainred hover:bg-rose-400 btn-sm text-white"
-        >
-          Sign up
-        </Link>
-      </div>
+      {token && user ? (
+        <div className="navbar-end">
+          <h1 className="font-semibold mr-4">{user}</h1>
+          <Link
+            onClick={logout}
+            className="btn bg-mainred hover:bg-rose-400 btn-sm text-white"
+          >
+            Logout
+          </Link>
+        </div>
+      ) : (
+        <div className="navbar-end">
+          <Link to="/login-page" className="btn btn-ghost btn-sm mr-2">
+            Login
+          </Link>
+          <Link
+            to="/signup-page"
+            className="btn bg-mainred hover:bg-rose-400 btn-sm text-white"
+          >
+            Sign up
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

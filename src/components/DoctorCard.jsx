@@ -20,12 +20,12 @@ const DoctorCard = ({ doctors }) => {
       <div className="px-5 pb-5">
         <a href="#">
           <h2 className="text-xl font-semibold tracking-tight text-gray-900">
-            Dr. {item.name}
+            Dr. {item.fullName}
           </h2>
         </a>
         <a href="#" className="flex my-2">
           <h5 className="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded block">
-            {item.specialization}
+            {item.speciality}
           </h5>
         </a>
         <h3 className="flex items-center py-4">
@@ -42,7 +42,7 @@ const DoctorCard = ({ doctors }) => {
         </h3>
         <div className="flex items-center justify-end md:mt-2">
           <Link
-            to={`/doctors/${item.id}`}
+            to={`/doctors/${item._id}`}
             className="btn btn-sm bg-mainred hover:bg-rose-400 text-white"
           >
             Preview
